@@ -7,7 +7,8 @@ venv/
 
 # Cache Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 
 # Arquivos do sistema
 .DS_Store
@@ -19,9 +20,9 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# Arquivos temporários
+# Arquivos temporários e logs
 *.log
 
-# Dados gerados
+# Dados gerados automaticamente
 data/output/
 reports/report.pdf
