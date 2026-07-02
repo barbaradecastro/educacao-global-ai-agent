@@ -1,8 +1,12 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 
 PROJECT_ROOT: Path = Path(__file__).resolve().parent.parent
+
+load_dotenv(PROJECT_ROOT / ".env")
 
 DATA_DIR: Path = PROJECT_ROOT / "data"
 RAW_DATA_DIR: Path = DATA_DIR / "raw"
