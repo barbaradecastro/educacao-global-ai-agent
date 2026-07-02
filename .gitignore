@@ -7,8 +7,7 @@ venv/
 
 # Cache Python
 __pycache__/
-*.py[cod]
-*.pyo
+*.pyc
 
 # Arquivos do sistema
 .DS_Store
@@ -20,9 +19,21 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# Arquivos temporários e logs
+# Logs
 *.log
 
-# Dados gerados automaticamente
+# ==========================
+# Dados do projeto
+# ==========================
+
+# Dataset oficial
+data/raw/*.csv
+
+# Arquivos gerados pelo pipeline
+data/processed/*.csv
 data/output/
+
+# Relatórios gerados
+reports/report.md
+reports/report.json
 reports/report.pdf
