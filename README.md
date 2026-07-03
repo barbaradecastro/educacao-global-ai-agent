@@ -441,6 +441,23 @@ A arquitetura foi desenvolvida para facilitar novas funcionalidades, como:
 
 ---
 
+# 🤖 Desenvolvimento Assistido por IA
+
+Durante o desenvolvimento deste projeto foram utilizadas técnicas de Engenharia de Prompt para apoiar as etapas de análise, planejamento, implementação e revisão da solução.
+
+Os principais frameworks e estratégias empregados incluíram:
+
+- Quebrador de Problemas (decomposição do desafio em módulos menores);
+- Arquiteto de Soluções de IA (definição da arquitetura do sistema);
+- Gerador de Prompts (estruturação de prompts especializados);
+- Desenvolvimento incremental orientado por IA;
+- Revisão iterativa de código e documentação.
+
+A Inteligência Artificial foi utilizada como ferramenta de apoio ao desenvolvimento, enquanto todas as decisões de arquitetura, validação, testes e integração dos componentes foram conduzidas durante a implementação do projeto.
+
+---
+
+
 # 📄 Licença
 
 Este projeto está licenciado sob a **Licença MIT**.
