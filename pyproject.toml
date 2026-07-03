@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "educacao-global-ai-agent"
+version = "1.0.0"
+description = "Global Education Intelligence Agent based on the World Bank Education Statistics (EdStats) dataset."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+
+authors = [
+    { name = "Bárbara Castro" }
+]
+
+keywords = [
+    "artificial-intelligence",
+    "education",
+    "world-bank",
+    "data-analysis",
+    "openai",
+    "python",
+    "analytics"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Education",
+]
+
+dependencies = [
+    "pandas>=2.2.0",
+    "matplotlib>=3.8.0",
+    "openai>=1.35.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+
+testpaths = [
+    "tests"
+]
+
+python_files = [
+    "test_*.py"
+]
+
+addopts = "-v"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
