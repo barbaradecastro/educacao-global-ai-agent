@@ -384,34 +384,63 @@ Além deste README, o projeto possui documentação complementar para facilitar 
 
 ---
 
-# 🎁 Funcionalidades Extras
-
-Além dos requisitos principais do desafio, foram implementados recursos adicionais para tornar a solução mais completa e preparada para futuras evoluções.
-
 ## 🧠 Skill de IA
 
-A pasta `skills/education-insight-skill/` contém uma Skill estruturada para reutilização em aplicações baseadas em Modelos de Linguagem (LLMs).
+O projeto inclui uma **Skill versionada** para demonstrar o conceito de reutilização de capacidades em aplicações baseadas em Modelos de Linguagem (LLMs), conforme proposto no desafio.
 
-Arquivos incluídos:
+A **Education Insight Skill** foi desenvolvida para transformar dados processados pelo pipeline em análises interpretativas, permitindo:
 
-- `SKILL.md`
-- `schema.json`
-- `prompt_template.md`
-- `examples.md`
+- selecionar países para análise;
+- selecionar indicadores educacionais;
+- comparar o desempenho entre países;
+- gerar rankings;
+- produzir insights em linguagem natural;
+- gerar relatórios executivos.
+
+A Skill foi estruturada para facilitar sua reutilização em agentes inteligentes e outros sistemas de IA.
+
+Arquivos disponíveis:
+
+```text
+skills/
+└── education-insight-skill/
+    ├── SKILL.md
+    ├── schema.json
+    ├── prompt_template.md
+    └── examples.md
+```
+
+Cada arquivo possui uma responsabilidade específica:
+
+| Arquivo | Descrição |
+|----------|-----------|
+| `SKILL.md` | Documentação da Skill, objetivo, capacidades e casos de uso |
+| `schema.json` | Estrutura de entrada e saída esperada pela Skill |
+| `prompt_template.md` | Prompt base para geração de análises educacionais |
+| `examples.md` | Exemplos de entrada e saída da Skill |
 
 ---
 
 ## 🔄 Workflow n8n
 
-Foi incluído um workflow de exemplo utilizando **n8n**, demonstrando como o pipeline pode ser integrado a processos automatizados.
+O projeto inclui um **workflow desenvolvido em n8n** para automatizar a execução do pipeline de análise, reduzindo a necessidade de intervenções manuais e facilitando a utilização da solução.
+
+O fluxo foi estruturado para atender aos requisitos do projeto e contempla as seguintes etapas:
+
+- gatilho para iniciar a execução do processo;
+- execução do pipeline Python;
+- chamada à OpenAI para geração da análise executiva;
+- armazenamento do resultado gerado em arquivo.
 
 Arquivos disponíveis:
 
 ```text
 n8n/
-├── README-n8n.md
-└── workflow.json
+├── workflow.json
+└── README-n8n.md
 ```
+
+O workflow pode ser importado diretamente no n8n e adaptado conforme o ambiente de execução e as credenciais utilizadas.
 
 ---
 
@@ -428,9 +457,49 @@ Esse material pode ser utilizado para exploração dos dados, testes e futuras a
 
 ---
 
+# 🤖 Como o Codex foi utilizado
+
+Durante o desenvolvimento deste projeto, o Codex foi utilizado como ferramenta de apoio à engenharia de software, contribuindo para acelerar atividades de implementação, revisão e documentação.
+
+As principais tarefas realizadas com auxílio do Codex foram:
+
+- decomposição do desafio em módulos independentes;
+- definição da arquitetura do pipeline;
+- implementação e revisão de funções Python;
+- criação de docstrings;
+- identificação e correção de bugs;
+- refatoração e organização do código;
+- geração e revisão de testes automatizados com Pytest;
+- elaboração da documentação técnica;
+- estruturação da Skill de IA;
+- documentação do workflow do n8n;
+- revisão e aprimoramento do README.
+
+O uso do Codex contribuiu para aumentar a produtividade durante o desenvolvimento, enquanto as decisões de arquitetura, integração dos módulos, validação dos resultados e organização final da solução permaneceram sob responsabilidade da autora.
+
+---
+
+# 🎁 Funcionalidades Extras
+
+Além dos requisitos obrigatórios do desafio, o projeto inclui funcionalidades que ampliam a qualidade da solução e facilitam sua utilização e evolução.
+
+- 📈 Geração automática de gráficos para visualização dos indicadores educacionais.
+- 📄 Exportação dos resultados em múltiplos formatos (`CSV`, `JSON` e `Markdown`).
+- 📓 Notebook para análise exploratória dos dados (`exploratory_analysis.ipynb`).
+- 🧪 Testes automatizados com **Pytest** para validação dos principais módulos do pipeline.
+- ⚙️ Arquitetura modular, facilitando manutenção, reutilização e evolução da solução.
+- 📚 Documentação técnica complementar da arquitetura, dicionário de dados, uso do Codex e roteiro da apresentação.
+- 🔄 Workflow em **n8n** para orquestração do pipeline de processamento e geração da análise executiva.
+- ⏱️ Agendamento periódico no **n8n** para execução automatizada do pipeline.
+- 🧠 Skill versionada para reutilização de análises educacionais em aplicações baseadas em LLMs.
+
+Esses recursos tornam o projeto mais organizado, reutilizável e próximo de um cenário real de engenharia de dados e Inteligência Artificial.
+
+---
+
 # 📈 Possíveis Evoluções
 
-A arquitetura foi desenvolvida para facilitar novas funcionalidades, como:
+A arquitetura foi desenvolvida para facilitar novas funcionalidades, como:s
 
 - integração com novos indicadores educacionais;
 - comparação entre regiões e continentes;
