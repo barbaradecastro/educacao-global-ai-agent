@@ -1,164 +1,151 @@
-# Roteiro da Apresentação do Vídeo — Global Education AI Agent
+# Roteiro da Apresentação do Vídeo — Global Education AI Agent (5–10 minutos) 
 
-Tempo estimado: 5 a 6 minutos
-
----
-
-# 1. Apresentação (30 segundos)
+# 1. Apresentação
 
 Olá!
 
-Meu nome é Bárbara Castro e este é o projeto **Global Education AI Agent**, desenvolvido como solução para o desafio proposto.
+Meu nome é **Bárbara Castro** e este é o projeto **Global Education AI Agent**, desenvolvido para o desafio **Acelera AI**.
 
-O objetivo do projeto é automatizar a análise de indicadores educacionais do World Bank Education Statistics (EdStats), utilizando Python, Inteligência Artificial e uma arquitetura modular capaz de processar grandes volumes de dados de forma automatizada.
+O objetivo da solução é automatizar o processamento e a análise de indicadores educacionais utilizando dados do **World Bank Education Statistics (EdStats)**, integrando Python, OpenAI, n8n e Skills.
 
 ---
 
-# 2. Visão Geral do Projeto (40 segundos)
+# 2. Objetivo do Projeto
 
-A solução foi desenvolvida utilizando uma arquitetura modular.
+O pipeline foi desenvolvido para:
 
-Cada responsabilidade foi separada em um módulo específico, tornando o projeto organizado, reutilizável e de fácil manutenção.
+- processar dados educacionais;
+- selecionar países e indicadores;
+- comparar resultados entre países;
+- gerar rankings;
+- produzir gráficos;
+- gerar relatórios automatizados;
+- produzir análises executivas utilizando Inteligência Artificial.
 
-Os principais módulos são:
+---
+
+# 3. Arquitetura
+
+Apresente rapidamente a estrutura do projeto:
+
+- `src/`
+- `tests/`
+- `docs/`
+- `skills/`
+- `n8n/`
+- `reports/`
+- `notebooks/`
+
+Explique que a arquitetura foi organizada de forma modular para facilitar manutenção, reutilização e evolução da solução.
+
+---
+
+# 4. Execução do Pipeline
+
+Execute:
+
+```bash
+python -m src.main --skip-openai
+```
+
+Durante a execução, explique que o pipeline realiza automaticamente:
 
 - carregamento dos dados;
 - limpeza;
 - transformação;
-- cálculo de métricas;
-- rankings;
-- comparações entre países;
-- geração de gráficos;
-- exportação dos resultados;
-- geração de relatórios;
-- integração opcional com a OpenAI.
-
-Além disso, o projeto possui documentação, testes automatizados e materiais extras para expansão futura.
-
----
-
-# 3. Estrutura do Projeto (40 segundos)
-
-Agora vou apresentar rapidamente a estrutura do projeto.
-
-Na pasta **src** estão todos os módulos responsáveis pelo pipeline.
-
-Na pasta **data** ficam os arquivos de entrada e os resultados gerados.
-
-A pasta **reports** contém os relatórios produzidos automaticamente.
-
-Também foram incluídas as pastas:
-
-- docs
-- tests
-- skills
-- n8n
-- notebooks
-
-que complementam a solução proposta.
-
----
-
-# 4. Execução do Pipeline (1 minuto e 30 segundos)
-
-Agora vou executar o pipeline principal.
-
-No terminal utilizo o comando:
-
-python -m src.main --skip-openai
-
-Durante a execução é possível acompanhar todas as etapas através dos logs.
-
-O sistema realiza automaticamente:
-
-• carregamento do dataset;
-
-• limpeza dos dados;
-
-• transformação para formato analítico;
-
-• seleção dos indicadores;
-
-• cálculo das métricas;
-
-• geração dos rankings;
-
-• comparação entre países;
-
-• geração de gráficos;
-
-• exportação dos resultados;
-
-• criação dos relatórios em Markdown e JSON.
-
-Todo esse processo ocorre automaticamente.
-
----
-
-# 5. Resultados (1 minuto)
-
-Após a execução, os resultados são gravados automaticamente.
-
-Na pasta **data/output** encontramos arquivos como:
-
-- education_metrics.csv
-- rankings.csv
-- country_comparison.csv
-- final_analysis.csv
-- final_analysis.json
-
-Também são gerados gráficos automaticamente.
-
-Na pasta **reports** são produzidos relatórios estruturados que resumem toda a análise realizada pelo pipeline.
-
----
-
-# 6. Testes Automatizados (40 segundos)
-
-O projeto também possui testes automatizados utilizando Pytest.
-
-Esses testes validam módulos importantes como:
-
-- limpeza dos dados;
+- seleção de indicadores;
 - cálculo das métricas;
-- rankings;
-- comparações;
-- indicadores.
-
-Os testes ajudam a garantir que futuras alterações não comprometam o funcionamento da aplicação.
-
----
-
-# 7. Diferenciais (50 segundos)
-
-Além da implementação principal, foram desenvolvidos alguns diferenciais para tornar a solução mais completa.
-
-Entre eles:
-
-• documentação técnica;
-
-• notebook de análise exploratória;
-
-• Skill de IA preparada para integração futura;
-
-• workflow do n8n;
-
-• arquitetura modular;
-
-• geração automática de relatórios;
-
-• integração opcional com modelos da OpenAI.
-
-Esses componentes tornam o projeto escalável e preparado para futuras evoluções.
+- geração dos rankings;
+- comparação entre países;
+- geração dos gráficos;
+- exportação dos resultados;
+- geração dos relatórios.
 
 ---
 
-# 8. Encerramento (30 segundos)
+# 5. Resultados
 
-Este projeto demonstra como Inteligência Artificial, análise de dados e engenharia de software podem ser combinadas para automatizar a geração de informações estratégicas sobre indicadores educacionais.
+Mostre:
 
-Muito obrigada pela oportunidade de apresentar esta solução.
+- gráficos gerados;
+- arquivos CSV;
+- arquivos JSON;
+- relatório Markdown;
+- notebook exploratório.
 
-Espero que o projeto demonstre não apenas o funcionamento da aplicação, mas também a preocupação com organização, documentação, qualidade do código e escalabilidade.
+Comente rapidamente alguns resultados observados, como diferenças entre países, rankings e tendências identificadas pelo pipeline.
 
-Obrigado!
+---
+
+# 6. OpenAI
+
+Explique que a integração com a OpenAI é opcional.
+
+Quando configurada a chave da API, o sistema produz automaticamente uma análise executiva baseada nos indicadores processados, incluindo:
+
+- principais resultados;
+- evolução dos países;
+- tendências;
+- recomendações;
+- limitações da análise.
+
+---
+
+# 7. Workflow n8n
+
+Apresente o arquivo `workflow.json`.
+
+Explique que o workflow automatiza o processo utilizando:
+
+- gatilho periódico;
+- execução do pipeline Python;
+- leitura dos resultados;
+- chamada para a OpenAI;
+- armazenamento do relatório final.
+
+---
+
+# 8. Skill
+
+Apresente rapidamente a pasta `skills/education-insight-skill`.
+
+Explique que a Skill foi desenvolvida para reutilizar capacidades de análise educacional em aplicações baseadas em Modelos de Linguagem (LLMs).
+
+Mostre os arquivos:
+
+- `SKILL.md`
+- `schema.json`
+- `prompt_template.md`
+- `examples.md`
+
+---
+
+# 9. Como o Codex foi utilizado
+
+Explique que o desenvolvimento contou com apoio do Codex em atividades como:
+
+- implementação de funções Python;
+- revisão de código;
+- criação de testes automatizados;
+- documentação técnica;
+- organização da arquitetura;
+- estruturação da Skill;
+- documentação do workflow do n8n.
+
+Ressalte que as decisões de arquitetura, integração dos módulos, validação dos resultados e organização final da solução foram conduzidas durante o desenvolvimento do projeto.
+
+---
+
+# 10. Encerramento
+
+Finalize agradecendo pela oportunidade de participar do desafio.
+
+Reforce que o projeto demonstra a integração entre:
+
+- Python;
+- OpenAI;
+- n8n;
+- Skills;
+- desenvolvimento assistido por IA.
+
+Agradeça pela atenção.
