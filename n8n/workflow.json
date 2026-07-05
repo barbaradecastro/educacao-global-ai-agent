@@ -1,27 +1,36 @@
 {
-  "name": "Global Education AI Agent",
+  "name": "Global Education AI Agent - Scheduled n8n Workflow",
   "nodes": [
     {
-      "parameters": {},
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "weeksInterval": 1
+            }
+          ]
+        }
+      },
       "id": "schedule-trigger",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        240,
+        200,
         300
       ]
     },
     {
       "parameters": {
-        "command": "python -m src.main"
+        "command": "python -m src.main --skip-openai"
       },
-      "id": "execute-pipeline",
-      "name": "Execute Pipeline",
+      "id": "execute-python-pipeline",
+      "name": "Execute Python Pipeline",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        520,
+        480,
         300
       ]
     },
@@ -30,23 +39,58 @@
         "operation": "read",
         "fileSelector": "data/output/final_analysis.json"
       },
-      "id": "read-report",
-      "name": "Read Final Analysis",
+      "id": "read-final-analysis",
+      "name": "Read Final Analysis JSON",
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        820,
+        760,
         300
       ]
     },
     {
-      "parameters": {},
-      "id": "finish",
-      "name": "Workflow Finished",
-      "type": "n8n-nodes-base.noOp",
+      "parameters": {
+        "model": "gpt-4.1-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Você é um analista internacional de políticas educacionais. Sua função é interpretar dados educacionais processados e gerar uma análise executiva clara, objetiva e orientada à tomada de decisão."
+            },
+            {
+              "role": "user",
+              "content": "Analise o conteúdo do arquivo final_analysis.json gerado pelo pipeline Python. Produza uma análise executiva contendo: resumo, países com melhor desempenho, países em evolução, possíveis riscos, recomendações e limitações dos dados."
+            }
+          ]
+        }
+      },
+      "id": "openai-executive-analysis",
+      "name": "OpenAI Executive Analysis",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1,
       "position": [
-        1100,
+        1040,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "reports/report_n8n.md",
+        "dataPropertyName": "text"
+      },
+      "id": "write-n8n-report",
+      "name": "Write n8n Report",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1320,
         300
       ]
     }
@@ -56,29 +100,40 @@
       "main": [
         [
           {
-            "node": "Execute Pipeline",
+            "node": "Execute Python Pipeline",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Execute Pipeline": {
+    "Execute Python Pipeline": {
       "main": [
         [
           {
-            "node": "Read Final Analysis",
+            "node": "Read Final Analysis JSON",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Read Final Analysis": {
+    "Read Final Analysis JSON": {
       "main": [
         [
           {
-            "node": "Workflow Finished",
+            "node": "OpenAI Executive Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Executive Analysis": {
+      "main": [
+        [
+          {
+            "node": "Write n8n Report",
             "type": "main",
             "index": 0
           }
@@ -91,7 +146,7 @@
   "versionId": "1.0.0",
   "meta": {
     "project": "Global Education AI Agent",
-    "author": "Bárbara Castro",
-    "description": "Example n8n workflow for orchestrating the education analytics pipeline."
+    "author": "Bárbara de Castro Cunha",
+    "description": "Workflow n8n com agendamento periódico, execução do pipeline Python, chamada para IA e armazenamento do relatório final."
   }
 }
