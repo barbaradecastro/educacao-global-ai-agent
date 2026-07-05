@@ -1,117 +1,88 @@
-# Education Insight Skill — Usage Examples
+# Exemplos de Utilização
 
-This document presents practical examples of how the Education Insight Skill can be used after the project pipeline has processed the World Bank Education Statistics (EdStats) dataset.
+## Exemplo 1
 
----
+### Entrada
 
-# Example 1 — Country Comparison
+```yaml
+countries:
+  - BRA
+  - CHL
+  - ARG
+  - USA
+  - FIN
 
-## User Request
+indicator:
+  - SE.XPD.TOTL.GD.ZS
 
-Compare Brazil and Finland regarding literacy rates between 2000 and 2020.
+period:
+  start_year: 2000
+  end_year: 2020
+```
 
-## Expected Response
+### Saída Esperada
 
-- Present the historical evolution of both countries.
-- Compare the final indicator values.
-- Identify which country achieved the best result.
-- Summarize the main differences.
+```text
+Resumo Executivo
 
----
+O conjunto de países apresenta diferenças relevantes no investimento em educação ao longo do período analisado.
 
-# Example 2 — Ranking Analysis
+Comparação entre Países
 
-## User Request
+• Brasil apresentou ...
+• Chile apresentou ...
+• Finlândia apresentou ...
 
-Show the top 10 countries with the highest education expenditure.
+Ranking
 
-## Expected Response
+1. ...
+2. ...
+3. ...
 
-- Display the ranking.
-- Explain the ranking criterion.
-- Highlight relevant differences among the leading countries.
-- Mention possible data limitations.
+Principais Insights
 
----
+...
 
-# Example 3 — Historical Trend
+Recomendações
 
-## User Request
+...
 
-Analyze the evolution of education expenditure in Chile from 2000 to 2020.
+Limitações
 
-## Expected Response
-
-- Describe the historical behavior of the indicator.
-- Report whether the trend indicates growth, stability or decline.
-- Summarize the most significant changes observed.
-
----
-
-# Example 4 — Executive Summary
-
-## User Request
-
-Generate an executive report for the selected countries.
-
-## Expected Response
-
-The report should include:
-
-- Executive Summary
-- Main Findings
-- Country Comparison
-- Rankings
-- Historical Trends
-- Educational Insights
-- Conclusions
+...
+```
 
 ---
 
-# Example 5 — Multiple Indicators
+## Exemplo 2
 
-## User Request
+### Entrada
 
-Compare Brazil, Chile and Argentina using:
+```yaml
+countries:
+  - BRA
+  - USA
 
-- Literacy Rate
-- Education Expenditure
+indicator:
+  - SE.ADT.LITR.ZS
 
-## Expected Response
+period:
+  start_year: 2010
+  end_year: 2020
+```
 
-The assistant should:
+### Saída Esperada
 
-- Analyze each indicator independently.
-- Compare the countries.
-- Highlight similarities and differences.
-- Produce a concise executive summary.
+```text
+Resumo Executivo
 
----
+A comparação demonstra diferenças reduzidas entre os países para o indicador analisado.
 
-# Expected Behavior
+Principais Insights
 
-The Skill should always:
+...
 
-- Use only the processed EdStats data.
-- Base conclusions on the available evidence.
-- Avoid unsupported assumptions.
-- Clearly state when information is insufficient.
-- Produce structured and objective responses.
+Recomendações
 
----
-
-# Integration
-
-This Skill is designed to work together with the following project modules:
-
-- load_data.py
-- clean_data.py
-- transformations.py
-- indicators.py
-- metrics.py
-- rankings.py
-- comparisons.py
-- report_generator.py
-- openai_client.py
-
-The examples above assume that the analytical pipeline has already been executed successfully.
+...
+```

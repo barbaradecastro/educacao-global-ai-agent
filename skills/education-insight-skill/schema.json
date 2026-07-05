@@ -1,72 +1,29 @@
 {
-  "name": "education-insight-skill",
+  "name": "Education Insight Skill",
+  "description": "Skill para geração de análises sobre indicadores educacionais utilizando dados do World Bank Education Statistics (EdStats).",
   "version": "1.0.0",
-  "description": "Skill for analyzing educational indicators from the World Bank Education Statistics (EdStats) dataset.",
-  "author": "Bárbara Castro",
-  "language": "en",
-  "domain": "Education Analytics",
   "input": {
-    "type": "object",
-    "properties": {
-      "countries": {
-        "type": "array",
-        "description": "ISO-3 country codes.",
-        "items": {
-          "type": "string"
-        }
-      },
-      "indicators": {
-        "type": "array",
-        "description": "World Bank education indicator codes.",
-        "items": {
-          "type": "string"
-        }
-      },
-      "start_year": {
-        "type": "integer",
-        "description": "Initial year of the analysis."
-      },
-      "end_year": {
-        "type": "integer",
-        "description": "Final year of the analysis."
-      }
-    },
-    "required": [
-      "countries",
-      "indicators"
-    ]
+    "countries": [
+      "BRA",
+      "CHL",
+      "ARG",
+      "USA",
+      "FIN"
+    ],
+    "indicators": [
+      "SE.XPD.TOTL.GD.ZS",
+      "SE.ADT.LITR.ZS"
+    ],
+    "start_year": 2000,
+    "end_year": 2020,
+    "analysis_type": "executive"
   },
   "output": {
-    "type": "object",
-    "properties": {
-      "executive_summary": {
-        "type": "string"
-      },
-      "metrics": {
-        "type": "array"
-      },
-      "rankings": {
-        "type": "array"
-      },
-      "comparisons": {
-        "type": "array"
-      },
-      "insights": {
-        "type": "array"
-      }
-    }
-  },
-  "capabilities": [
-    "Country comparison",
-    "Indicator interpretation",
-    "Historical trend analysis",
-    "Educational performance evaluation",
-    "Executive reporting",
-    "Evidence-based insights"
-  ],
-  "limitations": [
-    "Does not predict future values.",
-    "Does not infer causality.",
-    "Depends on processed EdStats data."
-  ]
+    "executive_summary": "string",
+    "country_comparison": "string",
+    "ranking": "string",
+    "insights": "string",
+    "recommendations": "string",
+    "limitations": "string"
+  }
 }
